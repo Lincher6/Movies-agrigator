@@ -28,7 +28,7 @@ export const Column = styled.div`
 `
 
 export const Title = styled.p`
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 40px;
   color: #757575;
 `
@@ -37,7 +37,7 @@ export const Link = styled.a`
   text-decoration: none;
   color: #757575;
   margin-bottom: 10px;
-  font-size: 13px;
+  font-size: 16px;
 `
 
 export const Break = styled.div`
@@ -45,7 +45,7 @@ export const Break = styled.div`
 `
 
 export const Text = styled.p`
-  font-size: 13px;
+  font-size: 16px;
   color: #757575;
   margin-bottom: 40px;
 `;

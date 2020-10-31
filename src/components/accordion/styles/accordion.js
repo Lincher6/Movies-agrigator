@@ -60,13 +60,24 @@ export const Header = styled.div`
 `
 
 export const Body = styled.div`
-  max-height: 100%;
-  transition: max-height 0.1s cubic-bezier(0.5, 0, 0.1, 1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.5, 0, 0.1, 1);
   font-size: 26px;
-  padding: 0.8em 2.2em 0.8em 1.2em;
   user-select: none;
-  white-space: pre-wrap;
   background: #303030;
+  box-sizing: border-box;
+  
+  p {
+    padding: 0.8em 2.2em 0.8em 1.2em;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+  
+  &.open {
+    max-height: 500px;
+    transition: max-height 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+  }
   
   @media (max-width: 600px) {
     font-size: 16px;

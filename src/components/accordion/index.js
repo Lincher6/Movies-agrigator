@@ -51,6 +51,8 @@ Accordion.Body = function AccordionBody({children, ...props}) {
     const {isOpen, setIsOpen} = useContext(ToggleContext)
 
     return (
-        isOpen && <Body {...props}>{children}</Body>
+        <Body {...props} className={isOpen && 'open'}>
+            <p>{children}</p>
+        </Body>
     )
 }
