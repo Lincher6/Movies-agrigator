@@ -1,1 +1,6 @@
 export { JumbotronContainer } from './jumbotronContainer'
+export { FooterContainer } from './footerContainer'
+export { FaqContainer } from './faqContainer'
+export { HeaderContainer } from './headerContainer'
+export { OptFormContainer } from './optFormContainer'
+export { FeatureContainer } from './featureContainer'

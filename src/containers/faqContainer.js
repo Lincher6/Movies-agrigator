@@ -1,7 +1,7 @@
 import React from "react"
 import faqs from "fixtures/faqs.json"
 import {Accordion} from "../components";
-import {OptForm} from "../components";
+import {OptFormContainer} from "./optFormContainer";
 
 export const FaqContainer = () => {
     return (
@@ -22,11 +22,7 @@ export const FaqContainer = () => {
                 ))
             }
 
-            <OptForm>
-                <OptForm.Input placeholder="Email address" />
-                <OptForm.Button>Try it now</OptForm.Button>
-                <OptForm.Text>Ready to watch? Enter your email to create or restart your membership.</OptForm.Text>
-            </OptForm>
+            <OptFormContainer/>
         </Accordion>
     )
 }
