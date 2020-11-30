@@ -1,29 +1,45 @@
 import React from 'react'
 import * as ROUTES from 'constants/routes'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {HomePage} from "./pages/HomePage";
-import {SignInPage} from "./pages/SignInPage";
+import { BrowserRouter, Switch } from "react-router-dom";
+import {HomePage, SignInPage, SignUpPage} from "./pages";
+import {AuthRedirect, ProtectedRoute} from "./helpers/routes";
 
 export function App() {
+    const user = true
+
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path={ROUTES.HOME}>
-                    <HomePage/>
-                </Route>
-                <Route exact path={ROUTES.BROWSE}>
+                <ProtectedRoute
+                    user={user}
+                    path={ROUTES.BROWSE}
+                >
                     Browse
-                </Route>
-                <Route exact path={ROUTES.SIGN_IN}>
-                    <SignInPage/>
-                </Route>
-                <Route exact path={ROUTES.SIGN_UP}>
-                    SIGNUP
-                </Route>
+                </ProtectedRoute>
 
-                <Route path={ROUTES.HOME}>
+                <AuthRedirect
+                    path={ROUTES.SIGN_IN}
+                    user={user}
+                    loggedInPath={ROUTES.BROWSE}
+                >
+                    <SignInPage/>
+                </AuthRedirect>
+
+                <AuthRedirect
+                    path={ROUTES.SIGN_UP}
+                    user={user}
+                    loggedInPath={ROUTES.BROWSE}
+                >
+                    <SignUpPage/>
+                </AuthRedirect>
+
+                <AuthRedirect
+                    loggedInPath={ROUTES.BROWSE}
+                    user={user}
+                    path={ROUTES.HOME}
+                >
                     <HomePage/>
-                </Route>
+                </AuthRedirect>
             </Switch>
         </BrowserRouter>
     )

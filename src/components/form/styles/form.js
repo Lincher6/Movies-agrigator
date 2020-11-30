@@ -1,12 +1,12 @@
 import styled from "styled-components/macro";
 import { NavLink } from "react-router-dom";
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 100%;
   max-width: 450px;
-  max-height: 660px;
+  min-height: 660px;
   margin: auto;
   margin-bottom: 100px;
   background-color: rgba(0, 0, 0, .75);
@@ -67,5 +67,26 @@ export const TextSmall = styled.p`
 `
 
 export const Link = styled(NavLink)`
+  color: #fff;
+  text-decoration: none;
   
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export const Submit = styled.button`
+  background: #e50914;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 24px 0 12px;
+  padding: 16px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  
+  &:disabled {
+    opacity: 0.5;
+  }
 `
