@@ -1,11 +1,13 @@
 import React from 'react'
 import * as ROUTES from 'constants/routes'
 import { BrowserRouter, Switch } from "react-router-dom";
-import {HomePage, SignInPage, SignUpPage} from "./pages";
+import {BrowsePage, HomePage, SignInPage, SignUpPage} from "./pages";
 import {AuthRedirect, ProtectedRoute} from "./helpers/routes";
+import {useAuthListener} from "./hooks";
+
 
 export function App() {
-    const user = true
+    const user = useAuthListener()
 
     return (
         <BrowserRouter>
@@ -14,7 +16,7 @@ export function App() {
                     user={user}
                     path={ROUTES.BROWSE}
                 >
-                    Browse
+                    <BrowsePage/>
                 </ProtectedRoute>
 
                 <AuthRedirect
