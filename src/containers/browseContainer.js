@@ -7,6 +7,7 @@ import * as ROUTES from "constants/routes"
 
 export const BrowseContainer = () => {
     const [profile, setProfile] = useState({})
+    const [searchTerm, setSearchTerm] = useState('')
     const [loading, setLoading] = useState(true)
     const firebase = useContext(FirebaseContext)
     const user = firebase.auth().currentUser || {}
@@ -33,6 +34,7 @@ export const BrowseContainer = () => {
                         </Header.TextLink>
                     </Header.Group>
                     <Header.Group>
+                        <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                         <Header.Profile>
                             <Header.Picture src={user.photoURL} />
                             <Header.Dropdown>
@@ -55,6 +57,7 @@ export const BrowseContainer = () => {
                         City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
                         futile attempt to feel like he's part of the world around him.
                     </Header.Text>
+                    <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
             </Header>
         </>

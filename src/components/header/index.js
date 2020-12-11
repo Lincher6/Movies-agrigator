@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 import {
     Background,
@@ -12,7 +12,7 @@ import {
     Link,
     FeatureCallOut,
     Text,
-    Profile
+    Profile, Search, SearchIcon, SearchInput, PlayButton
 } from "./styles/header";
 
 export const Header = ({bg = true, children, ...props}) => {
@@ -71,4 +71,27 @@ Header.Text = function HeaderText({ children, ...restProps }) {
 
 Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
     return <ButtonLink {...restProps}>{children}</ButtonLink>;
+};
+
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
+    const [searchActive, setSearchActive] = useState(false);
+
+    return (
+        <Search {...restProps}>
+            <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
+                <img src="/images/icons/search.png" alt="Search" />
+            </SearchIcon>
+            <SearchInput
+                value={searchTerm}
+                onChange={({ target }) => setSearchTerm(target.value)}
+                placeholder="Search films and series"
+                active={searchActive}
+                data-testid="search-input"
+            />
+        </Search>
+    );
+};
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+    return <PlayButton {...restProps}>{children}</PlayButton>;
 };
