@@ -1,5 +1,4 @@
 import React, {useState, useContext, createContext} from 'react';
-import {AnimatePresence} from 'framer-motion'
 
 import {
     Container,
